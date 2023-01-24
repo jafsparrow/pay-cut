@@ -22,7 +22,8 @@
       ],
       "@pay-cut/backend/promotion": ["libs/backend/promotion/src/index.ts"],
       "@pay-cut/backend/reward": ["libs/backend/reward/src/index.ts"],
-      "@pay-cut/backend/user": ["libs/backend/user/src/index.ts"]
+      "@pay-cut/backend/user": ["libs/backend/user/src/index.ts"],
+      "@pay-cut/common/types": ["libs/common/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
