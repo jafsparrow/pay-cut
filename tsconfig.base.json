@@ -14,7 +14,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@pay-cut/backend/auth": ["libs/backend/auth/src/index.ts"],
+      "@pay-cut/backend/barcode": ["libs/backend/barcode/src/index.ts"],
+      "@pay-cut/backend/organisation": [
+        "libs/backend/organisation/src/index.ts"
+      ],
+      "@pay-cut/backend/promotion": ["libs/backend/promotion/src/index.ts"],
+      "@pay-cut/backend/reward": ["libs/backend/reward/src/index.ts"],
+      "@pay-cut/backend/user": ["libs/backend/user/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
