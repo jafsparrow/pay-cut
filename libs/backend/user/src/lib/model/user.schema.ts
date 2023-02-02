@@ -15,6 +15,10 @@ export class User {
   email: string;
 
   @Prop()
+  password: string;
+
+
+  @Prop()
   phone: string; 
 
   @Prop({default: {

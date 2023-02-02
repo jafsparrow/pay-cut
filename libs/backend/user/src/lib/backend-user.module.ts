@@ -11,6 +11,6 @@ import { UserService } from './user.service';
 ],
   controllers: [UserController],
   providers: [UserService],
-  exports: [],
+  exports: [UserService],
 })
 export class BackendUserModule {}
