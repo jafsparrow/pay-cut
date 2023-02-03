@@ -16,6 +16,7 @@ export class UserController {
 
     @Post()
     createUser(@Body()userDto: CreateUserDto) {
+        // orgId should be read from the jwt.
         return this.userService.createUser(userDto)
 
     }

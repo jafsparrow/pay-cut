@@ -12,30 +12,31 @@ export class UserService {
     return await this.userModel.create(userDto);
   }
 
-  async updateRewardPoint(userAquiredPoint:number, userId: string) {
-    const currentPartnerUser: UserDocument = await this.userModel.findById(userId);
-    const history = { old: currentPartnerUser.rewards, new:0}
+  async updateRewardPoint(userAquiredPoint: number, userId: string) {
+    const currentPartnerUser: UserDocument = await this.userModel.findById(
+      userId
+    );
+    const history = { old: currentPartnerUser.rewards, new: 0 };
     currentPartnerUser.rewards = currentPartnerUser.rewards + userAquiredPoint;
     history.new = currentPartnerUser.rewards;
-    await currentPartnerUser.save()
+    await currentPartnerUser.save();
     return history;
   }
 
   async updateRedeemPoints(userRequestedRedeemPoint: number, userId: string) {
-    
     const currentPartnerUser: UserDocument = await this.userModel.findById(
       userId
     );
-    const history = {old: currentPartnerUser.rewards, new: 0}
+    const history = { old: currentPartnerUser.rewards, new: 0 };
     if (currentPartnerUser.rewards - userRequestedRedeemPoint < 0) {
-        console.log('now it has to be an error ')   
-        throw new Error('cannot update');
+      console.log('now it has to be an error ');
+      throw new Error('cannot update');
     }
     currentPartnerUser.rewards =
       currentPartnerUser.rewards - userRequestedRedeemPoint;
     history.new = currentPartnerUser.rewards;
-     await currentPartnerUser.save();
-    
-    return history
+    await currentPartnerUser.save();
+
+    return history;
   }
 }
