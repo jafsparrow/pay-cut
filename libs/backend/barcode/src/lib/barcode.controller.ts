@@ -14,4 +14,6 @@ export class BarcodeController {
     getBarcode() {
         return 'barcode shit works'
     }
+
+    
 }

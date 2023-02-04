@@ -10,6 +10,6 @@ import { Barcode, BarcodeSchema } from './model/barcode.schema';
    ])],
   controllers: [BarcodeController],
   providers: [BarcodeService],
-  exports: [],
+  exports: [BarcodeService],
 })
 export class BackendBarcodeModule {}

@@ -1,12 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { BarcodeService } from '@pay-cut/backend/barcode';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User, UserDocument } from './model/user.schema';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
+  constructor(
+    @InjectModel(User.name) private userModel: Model<UserDocument>,
+
+    @Inject(BarcodeService) private readonly barcodeService: BarcodeService
+  ) {}
 
   async createUser(userDto: CreateUserDto) {
     return await this.userModel.create(userDto);
@@ -38,5 +43,11 @@ export class UserService {
     await currentPartnerUser.save();
 
     return history;
+  }
+
+  async findUserFromUserBarcode(barcode: string) {
+    const userId = await this.barcodeService.getUserIdfromBarcode(barcode);
+    const userDoc = await this.userModel.findById(userId);
+    return userDoc;
   }
 }

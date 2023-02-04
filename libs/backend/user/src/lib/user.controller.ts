@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UserService } from "./user.service";
 
@@ -19,5 +19,11 @@ export class UserController {
         // orgId should be read from the jwt.
         return this.userService.createUser(userDto)
 
+    }
+
+    @Get('barcode/:barcode')
+    findUserFromBarcode(@Param('barcode') barcode) {
+        return this.userService.findUserFromUserBarcode(barcode)
+        // return barcode;
     }
 }
