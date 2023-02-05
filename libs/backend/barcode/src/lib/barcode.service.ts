@@ -21,4 +21,13 @@ export class BarcodeService {
     }
      return barcodeDoc.assignedUserId;
   }
+
+  async getBarcodesForTheUser(userId: string) {
+    const barcodeDocs = await this.barcodeModel.find({userId: userId})
+    return barcodeDocs;
+  }
+
+  async updateBarcodeStatusInBulk(barcodesMap:[Record<string, boolean>]) {
+    // this.barcodeModel.updateMany({code: {$in: barcodesMap.keys()}, {}})
+  }
 }

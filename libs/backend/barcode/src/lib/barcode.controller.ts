@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { BarcodeService } from "./barcode.service";
 import { CreateBarcodeDto } from "./dto/create-barcode.dto";
 
@@ -13,6 +13,11 @@ export class BarcodeController {
     @Get()
     getBarcode() {
         return 'barcode shit works'
+    }
+
+    @Get('all/:userId')
+    getBarcodesForUser(@Param('userId') userId) {
+        return this.barcodeService.getBarcodesForTheUser(userId);
     }
 
     
