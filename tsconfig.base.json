@@ -17,6 +17,7 @@
     "paths": {
       "@pay-cut/backend/auth": ["libs/backend/auth/src/index.ts"],
       "@pay-cut/backend/barcode": ["libs/backend/barcode/src/index.ts"],
+      "@pay-cut/backend/leadboard": ["libs/backend/leadboard/src/index.ts"],
       "@pay-cut/backend/organisation": [
         "libs/backend/organisation/src/index.ts"
       ],
